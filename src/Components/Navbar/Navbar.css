@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=New+Rocker&display=swap");
-nav {
-  background-color: #fcf7f1;
-}
 .nav-container {
   display: flex;
   align-items: center;
@@ -12,12 +9,12 @@ nav {
   cursor: pointer;
 }
 .nav-container .logo a h1 {
-  color: #05232f;
+  color: var(--text);
   font-size: 40px;
   font-weight: 600;
 }
 .nav-container .logo a p {
-  color: #05232f;
+  color: var(--text);
 }
 .links {
   display: flex;
@@ -26,12 +23,12 @@ nav {
   gap: 50px;
 }
 .nav-container .links a {
-  color: #05232f;
+  color: var(--text);
   font-size: 24px;
   font-weight: 500;
 }
 .nav-container .links a:hover {
-  border-bottom: 3px solid #05232f;
+  border-bottom: 3px solid var(--text);
 }
 @media (max-width: 768px) {
   .nav-container {

@@ -4,18 +4,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --text: #150906;
+  --background: #fdfafa;
+  --primary: #cb6544;
+  --secondary: #8fe0b5;
+  --accent: #6ab6d6;
+  --linearPrimarySecondary: linear-gradient(#cb6544, #8fe0b5);
+  --linearPrimaryAccent: linear-gradient(#cb6544, #6ab6d6);
+  --linearSecondaryAccent: linear-gradient(#8fe0b5, #6ab6d6);
+  --radialPrimarySecondary: radial-gradient(#cb6544, #8fe0b5);
+  --radialPrimaryAccent: radial-gradient(#cb6544, #6ab6d6);
+  --radialSecondaryAccent: radial-gradient(#8fe0b5, #6ab6d6);
+}
 body {
-  font-family: 'Roboto';
-
+  font-family: "Roboto";
+  background-color: var(--background);
+  color: var(--text);
 }
 a {
   text-decoration: none;
 }
 .container {
-  padding: 15px 200px; 
+  padding: 15px 200px;
 }
 @media (max-width: 680px) {
   .container {
-    padding: 10px; 
+    padding: 10px;
   }
 }
