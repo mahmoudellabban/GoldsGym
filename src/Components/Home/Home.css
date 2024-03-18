@@ -1,0 +1,41 @@
+.home-container {
+    width: 100%;
+    height: calc(100vh - 99px);
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(../../assets/1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.intro {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.intro h2 {
+    font-size: 50px;
+    color: #ffa500;
+}
+.intro p {
+    font-size: 18px;
+    color: #c1beba;
+
+}
+@media (max-width: 768px) {
+    .home-container {
+        height: calc(100vh - 71px);
+    }
+    .intro {
+        gap: 30px;
+    }
+    .intro h2 {
+        font-size: 45px;
+    }
+    .intro p {
+        font-size: 16px;
+    }
+}
