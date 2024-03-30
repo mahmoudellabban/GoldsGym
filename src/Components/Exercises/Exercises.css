@@ -34,3 +34,57 @@
     color: var(--background);
     cursor: pointer;
 }
+.parts {
+    margin: 30px auto;
+    
+}
+.part {
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.swiper-button-prev, .swiper-button-next {
+    color: var(--primary);
+}
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.cards-wrapper .card {
+    margin: 15px 30px;
+    background-color: var(--primary1);
+    padding: 30px 15px;
+    border-radius: 15px;
+}
+.cards-wrapper .card .gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cards-wrapper .card .gif img {
+    border: 1px solid var(--primary);
+    border-radius: 15px;
+}
+@media (max-width: 768px) {
+    .cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+        width: 90%;
+    }
+    .cards-wrapper .card {
+        width: 100%;
+    }
+    .cards-wrapper .card .gif,
+    .cards-wrapper .card .info {
+        width: 100%;
+    }
+}
