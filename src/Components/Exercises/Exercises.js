@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { exercisesOptions, fetchData } from "../../utils/fetchData";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./Exercises.css";
 
 const Exercises = () => {
   const [search, setSearch] = useState("");
-  const [bodyParts, setBodyParts] = useState([]);
   const [allExercises, setAllExercises] = useState([]);
   const [filteredExercises, setFilteredExercises] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,12 +13,6 @@ const Exercises = () => {
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
-        const bodyPartsData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
-          exercisesOptions
-        );
-        setBodyParts(["all", ...bodyPartsData]);
-
         const exercisesData = await fetchData(
           "https://exercisedb.p.rapidapi.com/exercises",
           exercisesOptions
@@ -50,12 +41,6 @@ const Exercises = () => {
     setFilteredExercises(searchedExercises);
   };
 
-  const handleBodyPartClick = (bodyPart) => {
-    const filteredExercises = bodyPart === "all" ? allExercises : allExercises.filter(
-      (exercise) => exercise.bodyPart.toLowerCase() === bodyPart.toLowerCase()
-    );
-    setFilteredExercises(filteredExercises);
-  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -73,31 +58,9 @@ const Exercises = () => {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
-      <Swiper
-        modules={[Navigation]}
-        navigation={true}
-        breakpoints={{
-          550: {
-            slidesPerView: 3,
-          },
-          1100: {
-            slidesPerView: 5,
-          },
-        }}
-        className="parts"
-      >
-        {bodyParts.map((item) => (
-          <SwiperSlide
-            key={item}
-            className="part"
-            onClick={() => handleBodyPartClick(item)}
-          >
-            {item}
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      
       <div className="cards-wrapper">
-        {filteredExercises.length > 3 ? (
+        {filteredExercises.length > 0 ? (
           filteredExercises.map((exercise) => (
             <div key={exercise.id} className="card">
               <div className="gif">
@@ -110,6 +73,9 @@ const Exercises = () => {
                 </p>
                 <p>
                   <strong>Target Muscles:</strong> {exercise.target}
+                </p>
+                <p>
+                  <strong>Equipment:</strong> {exercise.equipment}
                 </p>
                 <p>
                   <strong>Secondary Muscles:</strong>{" "}
